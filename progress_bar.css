@@ -1,0 +1,191 @@
+/* dynamic progress bar */
+/* hidden right away; 0 */
+
+:root {
+    --bar-size: 500px;
+    --bar-size-adj: 500px;
+    --bar-size-test: 500px;
+    --bar-height: 1rem;
+    --color: pink;
+}
+.progress-bar-outline {
+    width: var(--bar-size);
+    height: var(--bar-height);
+    background-color: white;
+    border: 2px solid black;
+    z-index: -1;
+}
+.progress-bar-2 {
+    display: none;
+    height: var(--bar-height);
+    background-color: var(--color);
+    animation: growgrow 2s forwards;
+}
+
+.progress-bar-0 {
+    height: var(--bar-height);
+    background-color: darkred;
+    animation-name: grow0;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+.progress-bar-10 {
+    height: var(--bar-height);
+    background-color: red;
+    animation: grow10 2s forwards;
+}
+
+.progress-bar-20 {
+    height: var(--bar-height);
+    background-color: orange;
+    animation: grow20 2s forwards;
+}
+.progress-bar-30 {
+    height: var(--bar-height);
+    background-color: rgb(255, 190, 37);
+    animation: grow30 2s forwards;
+}
+.progress-bar-40 {
+    height: var(--bar-height);
+    background-color: gold;
+    animation: grow40 2s forwards;
+}
+.progress-bar-50 {
+    height: var(--bar-height);
+    background-color: yellow;
+    animation: grow50 2s forwards;
+}
+
+.progress-bar-60 {
+    height: var(--bar-height);
+    background-color: rgb(225, 255, 6);
+    animation: grow60 2s forwards;
+}
+
+.progress-bar-70 {
+    height: var(--bar-height);
+    background-color:  rgb(186, 255, 30);
+    animation: grow70 2s forwards;
+}
+.progress-bar-80 {
+    height: var(--bar-height);
+    background-color: rgb(149, 255, 17);
+    animation: grow80 2s forwards;
+}
+.progress-bar-90 {
+    height: var(--bar-height);
+    background-color: rgb(105, 255, 17);
+    animation: grow90 2s forwards;
+}
+.progress-bar-100 {
+    height: var(--bar-height);
+    background-color: rgb(0, 255, 20);
+    animation: grow100 2s forwards;
+}
+
+
+
+@keyframes grow0 {
+    from { width: 0px; }
+    to{ width: var(--bar-size-adj); }
+}
+/* 10 % */
+@keyframes grow10 {
+    from { width: 0px; }
+    to{ width: var(--bar-size-adj); }
+    from {background-color: darkred;}
+    to {background-color: red;}
+}
+
+@keyframes grow20 {
+    from { width: 0px; }
+    to{ width: var(--bar-size-adj); }
+    from {background-color: red;}
+    to {background-color: orange;}
+}
+@keyframes grow30 {
+    from { width: 0px; }
+    to{ width: var(--bar-size-adj);  }
+    from {background-color: red;}
+    to {background-color: rgb(255, 190, 37);}
+}
+@keyframes grow40 {
+    from { width: 0px; }
+    to{ width: var(--bar-size-adj); }
+    from {background-color: red;}
+    to {background-color: gold;}
+}
+@keyframes grow50 {
+    from { width: 0px; }
+    to{ width: var(--bar-size-adj); }
+    from {background-color: red;}
+    to {background-color: yellow;}
+
+    /* 10%  {background-color: red;}
+    50% { background-color: orange;}
+    100% {background-color: yellow;} */
+}
+
+@keyframes grow60 {
+    from { width: 0px; }
+    to{ width: var(--bar-size-adj);  }
+    /* from {background-color: red;}
+    to {background-color: rgb(225, 255, 6);} */
+
+    10%  {background-color: red;}
+    30% { background-color: rgb(255, 190, 37);}
+    60% { background-color: yellow;}
+    100% {background-color: rgb(225, 255, 6);}
+
+}
+
+@keyframes grow70 {
+    from { width: 0px; }
+    to{ width: var(--bar-size-adj);  }
+    /* from {background-color: red;}
+    to {background-color: rgb(186, 255, 30);} */
+    10%  {background-color: red;}
+    50% { background-color: rgb(255, 190, 37);}
+    100% {background-color: rgb(186, 255, 30);}
+}
+@keyframes grow80 {
+    from { width: 0px; }
+    to{ width: var(--bar-size-adj);  }
+    /* from {background-color: red;}
+    to {background-color: rgb(149, 255, 17);} */
+
+    10%  {background-color: red;}
+    25% { background-color: rgb(255, 190, 37);}
+    50%  {background-color: yellow;}
+    100% {background-color: rgb(149, 255, 17);}
+}
+@keyframes grow90 {
+    from { width: 0px; }
+    to{ width: var(--bar-size-adj); }
+    /* from {background-color: red;}
+    to {background-color: rgb(105, 255, 17);} */
+
+    10%  {background-color: red;}
+    25% { background-color: rgb(255, 190, 37);}
+    50%  {background-color: yellow;}
+    100% {background-color: rgb(105, 255, 17);}
+}
+@keyframes grow100 {
+    from { width: 0px; }
+    to{ width: var(--bar-size-adj); }
+    /* from {background-color: red;}
+    to {background-color: rgb(0, 255, 20);} */
+
+
+    10%  {background-color: red;}
+    25% { background-color: rgb(255, 190, 37);}
+    50%  {background-color: yellow;}
+    75% {background-color: rgb(149, 255, 17);}
+    100% {background-color: rgb(0, 255, 20);}
+}
+
+@keyframes growgrow {
+    from { width: 0px; }
+    to{ width: var(--bar-size-test); }
+}
