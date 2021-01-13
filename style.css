@@ -85,3 +85,14 @@ button.exit {
     color:rgb(79, 61, 143);
     float: right;
 }
+
+a.edit i {
+    /* color: inherit; */
+    background-color: transparent;
+    padding: 5px;
+    border: none;
+    text-decoration: none;
+    color:rgb(79, 61, 143);
+    float: right;
+
+}
