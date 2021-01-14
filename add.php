@@ -3,12 +3,14 @@
     session_start();
 
     function insert_data($taskNm, $taskDesc, $pId, $perComp) {
+        global $conn;
         $sql = 'insert into todos (taskName, taskDescription, personId, percentCompleted) values (?, ?, ?, ?);';
         $stmt = mysqli_prepare($conn, $sql);
         mysqli_stmt_bind_param($stmt, "ssii", $taskNm, $taskDesc, $pId, $perComp);
         if(mysqli_stmt_execute($stmt)) { //if successful
             return true;
         } else {
+            die("<br>Error with query: ". mysqli_error($conn));
             return false;
         }
            //Closing the statement
@@ -32,8 +34,9 @@
         echo 'You are now adding a to-do item for: <strong>' . $_SESSION['name'] . '</strong>';
         
     } else { //if not set, redirect
-        header('Location: todos.php');
-        exit();
+        // header('Location: todos.php');
+        // exit();
+        echo 'Something went wrong; person Id missing';
     }
 ?>
 
@@ -51,11 +54,22 @@
 <body>
 
     <?php if(isset($_POST['taskName']) && isset($_POST['taskDescription']) && isset($_POST['percentCompleted'])) {?>
-    <p><?php echo $_POST['taskName'];
+    <?php echo $_POST['taskName'];
         echo $_POST['taskDescription'];
         echo $_POST['percentCompleted'];
+        echo $_POST['personId'];
+        if(insert_data($_POST['taskName'], $_POST['taskDescription'], $_POST['personId'], $_POST['percentCompleted'])) {
+            header('Location: todos.php');
+            exit();
+        }
+        else { //fail
+            echo 'Something went wrong. ';
+            echo '<br><br><a href="todos.php">Return to Todos page</a>';
+        }
         
-    }?></p>
+    } 
+    ?>
+
     <form action="add.php" method="post">
         <label for="taskName"  class='todo-form'>Task Name: </label><input type="text" name="taskName" id="taskName"  class='todo-form'>
         <label for="taskDescription"  class='todo-form' >Task Description: </label><input type="text" name="taskDescription" id="taskDescription"  class='todo-form'>
